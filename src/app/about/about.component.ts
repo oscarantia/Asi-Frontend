@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient }from '@angular/common/http';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  constructor(public httpClient: HttpClient){}
 
   ngOnInit(): void {
+    this.httpClient.get('http://127.0.0.1:8000/primera/').subscribe((res) =>{
+      console.log(res); 
+    });
   }
-
 }
+
